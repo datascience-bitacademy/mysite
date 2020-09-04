@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 import main.views as mainviews
+import guestbook.views as guetbookviews
 
 urlpatterns = [
     path('', mainviews.index),
+
+    path('guestbook/', guetbookviews.index),
 
     path('admin/', admin.site.urls),
 ]
