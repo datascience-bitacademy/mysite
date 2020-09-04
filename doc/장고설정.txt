@@ -58,8 +58,13 @@ python manage.py createsuperuser
     2) settings.py 에 설정작업
          TEMPLATES 변수에 'DIRS': [os.path.join(BASE_DIR, 'templates')] 세팅한다.
 
+12. /assets/**  URL을 /statics/** 경로로 매핑
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'statics'),
+    )
+    STATIC_URL = '/assets/'
 
-10. 지금까지 작업 내용 확인하기
+11. 지금까지 작업 내용 확인하기
 1) 서버 시작하기
    터미널에서
    # python manage.py runserver 0.0.0.0:8888(포트 선택)
@@ -77,8 +82,8 @@ mysite
 
 1. main Application 만들기
     1) 터미널에서
-       # python manage.py startapp helloworld
-    2) templates/helloworld 디렉토리 생성
+       # python manage.py startapp main
+    2) templates/main 디렉토리 생성/확인
     3) Application 등록
         settings.py의 INSTALLED_APPS 에 추가 한다.
     -----------------------------------------------------------------------------
