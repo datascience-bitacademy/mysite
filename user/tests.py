@@ -1,3 +1,10 @@
 from django.test import TestCase
 
-# Create your tests here.
+import user.models as usermodels
+
+
+def test_usermodels_insert():
+    usermodels.insert('마이콜', 'michol@gmail.com', '1234', 'male')
+
+
+test_usermodels_insert()
