@@ -18,11 +18,14 @@ from django.urls import path
 
 import main.views as mainviews
 import guestbook.views as guetbookviews
+import user.views as userviews
 
 urlpatterns = [
     path('', mainviews.index),
 
     path('guestbook/', guetbookviews.index),
+
+    path('user/joinform', userviews.joinform),
 
     path('admin/', admin.site.urls),
 ]
