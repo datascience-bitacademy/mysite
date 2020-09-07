@@ -26,6 +26,7 @@ urlpatterns = [
     path('guestbook/', guetbookviews.index),
 
     path('user/joinform', userviews.joinform),
+    path('user/joinsuccess', userviews.joinsuccess),
 
     path('admin/', admin.site.urls),
 ]
