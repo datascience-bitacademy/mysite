@@ -30,6 +30,7 @@ urlpatterns = [
     path('user/join', userviews.join),
     path('user/loginform', userviews.loginform),
     path('user/login', userviews.login),
+    path('user/logout', userviews.logout),
 
     path('admin/', admin.site.urls),
 ]

@@ -35,5 +35,11 @@ def login(request):
         return HttpResponseRedirect('/user/loginform?result=fail')
 
     # login 처리
+    request.session['authuser'] = result;
 
+    return HttpResponseRedirect('/')
+
+
+def logout(request):
+    del request.session['authuser']
     return HttpResponseRedirect('/')
