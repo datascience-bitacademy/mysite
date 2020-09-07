@@ -14,3 +14,14 @@ select no, name
    and password=password('12345')
 
 -- 회원정보 수정
+select name, email, gender
+  from user
+ where no=2;
+ 
+update user
+   set name='...', gender='...'
+  where no=2;
+
+update user
+   set name='...', password=password('....'), gender='...'
+  where no=2;
