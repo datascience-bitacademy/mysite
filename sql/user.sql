@@ -17,7 +17,7 @@ select no, name
 select name, email, gender
   from user
  where no=2;
- 
+
 update user
    set name='...', gender='...'
   where no=2;
