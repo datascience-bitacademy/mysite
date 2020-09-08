@@ -49,7 +49,7 @@ def fetchonebyno(no):
           from user
          where no=%s    
     '''
-    cursor.execute(sql, (str(no)))
+    cursor.execute(sql, (no,))
     result = cursor.fetchone()
 
     # 자원 정리
@@ -69,14 +69,14 @@ def update(no, name, password, gender):
                set name=%s, gender=%s
              where no=%s 
         '''
-        t = (name, gender, str(no))
+        t = (name, gender, no)
     else:
         sql = '''
             update user
                set name=%s, password=password(%s), gender=%s
              where no=%s 
         '''
-        t = (name, password, gender, str(no))
+        t = (name, password, gender, no)
 
     cursor.execute(sql, t)
     conn.commit()

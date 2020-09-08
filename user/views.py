@@ -49,7 +49,7 @@ def updateform(request):
     no = request.session['authuser']['no']
 
     # 1. 데이터를 가져오기
-    result = usermodels.fetchonebyno(no)
+    result = usermodels.fetchonebyno(10)
     data = {'user': result}
 
     return render(request, 'user/updateform.html', data)
