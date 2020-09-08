@@ -40,6 +40,52 @@ def fetchone(email, password):
     return result
 
 
+def fetchonebyno(no):
+    conn = getconnection()
+    cursor = conn.cursor(DictCursor)
+
+    sql = '''
+        select no, name, email, gender
+          from user
+         where no=%s    
+    '''
+    cursor.execute(sql, (str(no)))
+    result = cursor.fetchone()
+
+    # 자원 정리
+    cursor.close()
+    conn.close()
+
+    return result
+
+
+def update(no, name, password, gender):
+    conn = getconnection()
+    cursor = conn.cursor()
+
+    if password == '':
+        sql = '''
+            update user
+               set name=%s, gender=%s
+             where no=%s 
+        '''
+        t = (name, gender, str(no))
+    else:
+        sql = '''
+            update user
+               set name=%s, password=password(%s), gender=%s
+             where no=%s 
+        '''
+        t = (name, password, gender, str(no))
+
+    cursor.execute(sql, t)
+    conn.commit()
+
+    # 자원 정리
+    cursor.close()
+    conn.close()
+
+
 def getconnection():
     return connect(
         user='mysite',

@@ -49,17 +49,19 @@ def updateform(request):
     no = request.session['authuser']['no']
 
     # 1. 데이터를 가져오기
-    # result = usermodels.fetchonebyno(no)
-    # data = {'user': result}
+    result = usermodels.fetchonebyno(no)
+    data = {'user': result}
 
-    return render(request, 'user/updateform.html')
+    return render(request, 'user/updateform.html', data)
 
 
 def update(request):
     no = request.session['authuser']['no']
     name = request.POST['name']
+    password = request.POST['password']
+    gender = request.POST['gender']
 
+    usermodels.update(no, name, password, gender)
     request.session['authuser'] = {'no': no, 'name': name}
-    # request.session['authuser'] ['name'] = name
 
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/user/updateform')
